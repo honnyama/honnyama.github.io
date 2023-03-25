@@ -1,27 +1,128 @@
-form {
-    margin: 0 auto;
-    width: 50%;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  input[type=text]:focus {
-    border: 2px solid #4CAF50;
-    outline: none;
-  }
-  
+/* 全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* 画面上部のスタイル */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+#goal {
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#submit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submit-button:hover {
+  background-color: #3e8e41;
+}
+
+/* 画面中央部のスタイル */
+#timer-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#timer {
+  font-size: 80px;
+  font-weight: bold;
+  color: #333;
+}
+
+#start-timer-button {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start-timer-button:hover {
+  background-color: #3e8e41;
+}
+
+/* 画面下部のスタイル */
+#points-table {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.points-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.points-container h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.points-container form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.points-container form label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.points-container form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.points-container form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.points-container form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.points-container p {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.points-container span {
+  font-size: 24px;
+  font-weight: bold;
+}
