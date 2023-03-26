@@ -1,36 +1,77 @@
 const timer = document.getElementById('timer');
 const startTimerButton = document.getElementById('start-timer-button');
 // ポイント入力フォームの要素を取得する
-const form = document.querySelector('form');
+const table = document.querySelector('table');
 
-startTimerButton.addEventListener('click', startTimer);
+let remainingTime = 300; // 5分間の残り時間を秒数で表す
+let isRunning = false; 
+let intervalId = null; // タイマーIDを初期値nullで宣言
 
+startTimerButton.addEventListener('click', toggleTimer);
 
+function toggleTimer() {
+  if (isRunning === false && intervalId === null) {
+    startTimer();
+  } else if(isRunning === true && intervalId !== null){
+    pauseTimer();
+  } else if(isRunning === true && intervalId === null){
+    resumeTimer();
+  }
+}
 
 function startTimer() {
-    let remainingTime = 300; // 5分間の残り時間を秒数で表す
+  isRunning = true; // タイマーが生成されたことを示すフラグを立てる
+  startTimerButton.innerText = '一時停止'; // ボタンのラベルを変更する
+  
+  intervalId = setInterval(() => {
+    remainingTime--;
 
-    const intervalId = setInterval(() => {
-      remainingTime--;
-  
-      const minutes = Math.floor(remainingTime / 60);
-      const seconds = remainingTime % 60;
-  
-      timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-  
-      if (remainingTime === 0) {
-        clearInterval(intervalId);
-      }
-    }, 1000);
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (remainingTime === 0) {
+      clearInterval(intervalId);
+      isRunning = false; // タイマーが停止していることを示すフラグを立てる
+      startTimerButton.innerText = '開始'; // ボタンのラベルを変更する
+      remainingTime = 300;
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  startTimerButton.innerText = '再開'; // ボタンのラベルを変更する
+  clearInterval(intervalId);
+  intervalId = null;
+}
+
+function resumeTimer(){
+  startTimerButton.innerText = '一時停止';
+  intervalId = setInterval(() => {
+    remainingTime--;
+
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+    if (remainingTime === 0) {
+      clearInterval(intervalId);
+      isRunning = false; // タイマーが停止していることを示すフラグを立てる
+      startTimerButton.innerText = '開始'; // ボタンのラベルを変更する
+      remainingTime = 300;
+    }
+  }, 1000);
 }
 
 function submitGoal() {
-    var goal = document.getElementById("goal").value;
-    alert("目標値は" + goal + "です。");
+  var goal = document.getElementById("goal").value;
+  alert("目標値は" + goal + "です。");
 }
 
 // フォーム変更時のイベントを処理する
-form.addEventListener('change', function(event) {
+table.addEventListener('change', function(event) {
     event.preventDefault(); // フォーム送信を中止する
   
     // 各チーム・各質問のポイントを取得する

@@ -14,29 +14,33 @@
 	<div id="timer">5:00</div>
   <button id="start-timer-button">タイマー開始</button>
 
-  <form>
-    <label for="teamA_q1">Team A, Question 1: </label>
-    <input type="text" id="teamA_q1" name="teamA_q1"><br>
-  
-    <label for="teamB_q1">Team B, Question 1: </label>
-    <input type="text" id="teamB_q1" name="teamB_q1"><br>
-  
-    <label for="teamA_q2">Team A, Question 2: </label>
-    <input type="text" id="teamA_q2" name="teamA_q2"><br>
-  
-    <label for="teamB_q2">Team B, Question 2: </label>
-    <input type="text" id="teamB_q2" name="teamB_q2"><br>
-  
-    <label for="teamA_q3">Team A, Question 3: </label>
-    <input type="text" id="teamA_q3" name="teamA_q3"><br>
-  
-    <label for="teamB_q3">Team B, Question 3: </label>
-    <input type="text" id="teamB_q3" name="teamB_q3"><br>
-  </form>
-  
-  <p>チームA: <span id="team-a-points">0</span>ポイント</p>
-  <p>チームB: <span id="team-b-points">0</span>ポイント</p>
-
+  <table id="points-table">
+    <tr>
+      <th></th>
+      <th>チームA</th>
+      <th>チームB</th>
+    </tr>
+    <tr>
+      <td>Q1</td>
+      <td><input type="number" id="teamA_q1" name="teamA_q1"></td>
+      <td><input type="number" id="teamB_q1" name="teamB_q1"></td>
+    </tr>
+    <tr>
+      <td>Q2</td>
+      <td><input type="number" id="teamA_q2" name="teamA_q2"></td>
+      <td><input type="number" id="teamB_q2" name="teamB_q2"></td>
+    </tr>
+    <tr>
+      <td>Q3</td>
+      <td><input type="number" id="teamA_q3" name="teamA_q3"></td>
+      <td><input type="number" id="teamB_q3" name="teamB_q3"></td>
+    </tr>
+    <tr>
+      <td>合計</td>
+      <td><span id="team-a-points">0</span>ポイント</td>
+      <td><span id="team-b-points">0</span>ポイント</td>
+    </tr>
+  </table>
 
 
 	<script src="main.js"></script>
