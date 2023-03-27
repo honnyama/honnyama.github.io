@@ -38,6 +38,12 @@ input[type=number] {
   background-color: #3e8e41;
 }
 
+#goal-display {
+  font-size: 50px;
+  font-weight: bold;
+  color: #333;
+}
+
 /* 画面中央部のスタイル */
 #timer-container {
   text-align: center;

@@ -1,6 +1,8 @@
+const goalInput = document.getElementById('goal');
+const submitButton  = document.getElementById('goal-button');
+const goalDisplay = document.getElementById('goal-display');
 const timer = document.getElementById('timer');
 const startTimerButton = document.getElementById('start-timer-button');
-// ポイント入力フォームの要素を取得する
 const table = document.querySelector('table');
 
 let remainingTime = 300; // 5分間の残り時間を秒数で表す
@@ -66,8 +68,11 @@ function resumeTimer(){
 }
 
 function submitGoal() {
-  var goal = document.getElementById("goal").value;
-  alert("目標値は" + goal + "です。");
+  var goal = goalInput.value;
+  goalDisplay.textContent = goal;
+  goalInput.style.display = 'none';
+  goalDisplay.style.display = 'block';
+  submitButton.style.display = 'none';
 }
 
 // フォーム変更時のイベントを処理する

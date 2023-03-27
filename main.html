@@ -5,10 +5,11 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>目標値を入力してください</h1>
+	<h3>目標値を入力してください</h3>
 	<label for="goal">目標値:</label>
 	<input type="number" id="goal" required>
-	<button onclick="submitGoal()">送信</button>
+	<button onclick="submitGoal()" id ="goal-button">送信</button>
+  <p id="goal-display"  style="display:none;"></p>
 
 	<h1>5分間のタイマー</h1>
 	<div id="timer">5:00</div>
