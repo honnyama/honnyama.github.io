@@ -35,9 +35,12 @@ function startTimer() {
 
     if (remainingTime === 0) {
       clearInterval(intervalId);
+      intervalId = null;
+      playSound();
       isRunning = false; // タイマーが停止していることを示すフラグを立てる
       startTimerButton.innerText = '開始'; // ボタンのラベルを変更する
       remainingTime = 300;
+      timer.innerText = '05:00';
     }
   }, 1000);
 }
@@ -60,9 +63,12 @@ function resumeTimer(){
 
     if (remainingTime === 0) {
       clearInterval(intervalId);
+      intervalId = null;
+      playsSOund();
       isRunning = false; // タイマーが停止していることを示すフラグを立てる
       startTimerButton.innerText = '開始'; // ボタンのラベルを変更する
       remainingTime = 300;
+      timer.innerText = '05:00';
     }
   }, 1000);
 }
@@ -99,3 +105,9 @@ table.addEventListener('change', function(event) {
     var pointsElement = document.querySelector('#team-' + team + '-points');
     pointsElement.textContent = points;
   }
+
+  function playSound() {
+    const audio = new Audio('目覚まし時計のアラーム音.mp3');
+    audio.play();
+  }
+  
