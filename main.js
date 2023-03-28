@@ -107,7 +107,7 @@ table.addEventListener('change', function(event) {
   }
 
   function playSound() {
-    const audio = new Audio('目覚まし時計のアラーム音.mp3');
+    const audio = new Audio('鳩時計2.mp3');
     audio.play();
   }
   
