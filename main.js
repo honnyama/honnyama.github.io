@@ -8,6 +8,7 @@ const table = document.querySelector('table');
 let remainingTime = 300; // 5分間の残り時間を秒数で表す
 let isRunning = false; 
 let intervalId = null; // タイマーIDを初期値nullで宣言
+let goal = 0;
 
 startTimerButton.addEventListener('click', toggleTimer);
 
@@ -74,7 +75,9 @@ function resumeTimer(){
 }
 
 function submitGoal() {
-  var goal = goalInput.value;
+  goal = goalInput.value;
+  remainPoints('a',0);
+  remainPoints('b',0);
   goalDisplay.textContent = goal;
   goalInput.style.display = 'none';
   goalDisplay.style.display = 'block';
@@ -96,14 +99,21 @@ table.addEventListener('change', function(event) {
     // TODO: ポイントを加算するなどの処理を行う
     const teamASumValue = Number(teamA_q1) + Number(teamA_q2) + Number(teamA_q3);
     updatePoints('a',teamASumValue);
+    remainPoints('a',teamASumValue);
     const teamBSumValue = Number(teamB_q1) + Number(teamB_q2) + Number(teamB_q3);
     updatePoints('b',teamBSumValue);
+    remainPoints('b',teamBSumValue);
 
   });
 
   function updatePoints(team, points) {
     var pointsElement = document.querySelector('#team-' + team + '-points');
     pointsElement.textContent = points;
+  }
+
+  function remainPoints(team,points){
+    var remainPointsElement = document.querySelector('#team-' + team + '-remain-points');
+    remainPointsElement.textContent = goal - points;
   }
 
   function playSound() {
